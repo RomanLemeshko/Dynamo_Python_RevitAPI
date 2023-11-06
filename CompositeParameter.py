@@ -22,7 +22,7 @@ def f(Elem, ParamName):
 	else:
 		return ""
 TransactionManager.Instance.EnsureInTransaction(doc)
-for i in UnwrapElement(IN[0]):
+for i in UnwrapElement(IN[0]): # Передаем все категории элементов, для которых необходимо заполнить параметр
 	SetParam=f(i, "ADSK_НаименованиеПоТипу")+",DN " + str(f(i, "Диаметр"))+"x" + f(i, "ADSK_Толщина стенки")
 	i.LookupParameter("ASML_Наименование").Set(SetParam)
 TransactionManager.Instance.TransactionTaskDone()
